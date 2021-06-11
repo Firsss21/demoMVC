@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  Create new student!
+<br>
+
+<form action="#" th:action="@{/student/processNew}" th:object="${student}"  method="get">
+    Enter first name: <input type="text" th:field="*{firstName}"/>
+    Enter last name:  <input type="text" th:field="*{lastName}"/>
+    <select th:field="*{gender}">
+        <option th:value="'M'" th:text="Male"></option>
+        <option th:value="'F'" th:text="Female"></option>
+    </select>
+
+    <select th:field="*{country}">
+        <option value=""> -- </option>
+        <option th:each="entry : ${countries}"
+                th:value="${entry.key}"
+                th:utext="${entry.value}">
+        </option>
+    </select>
+
+    <input type="radio" th:field="*{language}" th:value="Java" />
+    <label th:for="Java" th:text="Java"></label>
+    <input type="radio" th:field="*{language}" th:value="C" />
+    <label th:for="C" th:text="C"></label>
+    <input type="radio" th:field="*{language}" th:value="Python" />
+    <label th:for="Python" th:text="Python"></label>
+    <input type="radio" th:field="*{language}" th:value="PHP" />
+    <label th:for="PHP" th:text="PHP"></label>
+
+    <br>
+    <input type="checkbox" th:field="*{operatingSystems}" th:value="MacOS" />
+    <label th:for="MacOS" th:text="MacOS"></label>
+    <input type="checkbox" th:field="*{operatingSystems}" th:value="Linux" />
+    <label th:for="Linux" th:text="Linux"></label>
+    <input type="checkbox" th:field="*{operatingSystems}" th:value="Windows" />
+    <label th:for="Windows" th:text="Windows"></label>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
