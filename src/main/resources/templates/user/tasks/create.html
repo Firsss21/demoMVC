@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Create new task!
+<form action="#"
+      th:action="@{create}"
+      th:object="${task}"
+      method="post">
+    Enter title: <input type="text" th:field="*{title}"/>
+    <ul><li th:each="err : ${#fields.errors('title')}" th:text="${err}" class = "error"/></ul>
+    <input type="submit" value="submit">
+    <a href="/user/">back</a>
+</form>
+</body>
+</html>

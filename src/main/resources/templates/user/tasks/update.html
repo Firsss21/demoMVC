@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/user/{id}/task/{tid}/update(id=${user.id}, tid=${task.id})}"
+      th:object="${task}"
+      method="post">
+    Title: <input type="text" th:field="*{title}"/>
+    Title: <input type="hidden" th:field="*{id}" th:value="${task.id}"/>
+    Title: <input type="hidden" th:field="*{complete}" th:value="${task.complete}"/>
+    Title: <input type="hidden" th:field="*{user}" th:value="${task.user}"/>
+    <input type="submit" value="submit">
+</form>
+<a th:href="@{/user/{uid}/task(uid=${user.id})}">back</a>
+</body>
+</html>

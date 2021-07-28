@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Create user</h2>
+<form action="#"
+      th:action="@{/user/create}"
+      th:object="${user}"
+      method="post">
+    Enter username: <input type="text" th:field="*{userName}"/>
+    <ul><li th:each="err : ${#fields.errors('userName')}" th:text="${err}" class = "error"/></ul>
+    Enter email: <input type="email" th:field="*{email}"/>
+    <ul><li th:each="err : ${#fields.errors('password')}" th:text="${err}" class = "error"/></ul>
+    Enter password: <input type="password" th:field="*{password}"/>
+    <ul><li th:each="err : ${#fields.errors('email')}" th:text="${err}" class = "error"/></ul>
+    <input type="submit" value="submit">
+    <a href="/user/">back</a>
+</form>
+</body>
+</html>

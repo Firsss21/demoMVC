@@ -9,4 +9,14 @@ public class IndexController {
     public String index() {
         return "index";
     }
+
+    @GetMapping("/admin")
+    public String adminPage() {
+        return "admin";
+    }
+
+    @GetMapping("/access-denied")
+    public String showAccessDenied() {
+        return "access-denied";
+    }
 }

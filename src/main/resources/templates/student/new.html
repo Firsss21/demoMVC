@@ -10,6 +10,9 @@
 
 <form action="#" th:action="@{/student/processNew}" th:object="${student}"  method="get">
     Enter first name: <input type="text" th:field="*{firstName}"/>
+    <ul>
+        <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" class="error" />
+    </ul>
     Enter last name:  <input type="text" th:field="*{lastName}"/>
     <select th:field="*{gender}">
         <option th:value="'M'" th:text="Male"></option>

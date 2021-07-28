@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<p><a href="/helloWorld">Hello world</a></p>
+
+
+
+
   <p><a href="/student/">Student</a></p>
+  <p><a href="/user/">User</a></p>
+
+  <p>Spring Security Thymeleaf tutorial</p>
+  <div sec:authorize="hasRole('USER')">Text visible to user.</div>
+  <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
+  <div sec:authorize="isAuthenticated()">
+      Text visible only to authenticated users.
+  </div>
+  Authenticated username:
+  <div sec:authentication="name"></div>
+  Authenticated user roles:
+  <div sec:authentication="principal.authorities"></div>
+
+  <p>
+      <a th:href="@{/admin}">Only for admin</a>
+  </p>
+  <form action="#"
+        th:action="@{/logout}"
+        method="POST">
+        <input type="submit" value="Logout">
+  </form>
 </body>
 </html>

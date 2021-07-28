@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>todo list:</h2>
+
+<table border="1">
+    <th>id</th>
+    <th>title</th>
+    <th>complete</th>
+    <th>del</th>
+    <th>upd</th>
+    <th>complete</th>
+    <tr th:each="task: ${tasks}">
+        <td th:text="${task.id}" />
+        <td th:text="${task.title}" />
+        <td th:text="${task.complete}" />
+        <td><a th:href="@{/user/{uid}/task/{id}/delete(id=${task.id}, uid=${user.id})}">delete</a></td>
+        <td><a th:href="@{/user/{uid}/task/{id}/update(id=${task.id}, uid=${user.id})}">update</a></td>
+        <td><a th:href="@{/user/{uid}/task/{id}/complete(id=${task.id}, uid=${user.id})}">complete</a></td>
+
+    </tr>
+</table>
+
+<p><a th:href="@{/user/{id}/task/create(id=${user.id})}">create task</a></p>
+<p><a href="/user/">back</a></p>
+</body>
+</html>

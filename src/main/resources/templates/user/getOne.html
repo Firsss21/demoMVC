@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h2>User profile!</h2>
+
+ id: <p th:text="${user.id}"/>
+ Name: <p th:text="${user.userName}"/>
+ Email: <p th:text="${user.email}"/>
+ Todos: <a th:href="user/${user.id}/task" th:text="todos"/>
+  <a href="/user/">back!</a>
+</body>
+</html>

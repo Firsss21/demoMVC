@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h2>Список пользователей:</h2>
+
+  <table border="1">
+      <th>id</th>
+      <th>username</th>
+      <th>email</th>
+      <th>todos</th>
+      <th>del</th>
+      <th>upd</th>
+      <tr th:each="user: ${users}">
+          <td th:text="${user.id}" />
+          <td th:text="${user.userName}" />
+          <td th:text="${user.email}" />
+          <td><a th:href="@{/user/{id}/task(id=${user.id})}">todos</a></td>
+          <td><a th:href="@{/user/{id}/delete(id=${user.id})}">delete</a></td>
+          <td><a th:href="@{/user/{id}/update(id=${user.id})}">update</a></td>
+      </tr>
+  </table>
+  <p><a href="/user/create">create user</a></p>
+  <p><a href="/">back</a></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+Login
+<br>
+<form action="#"
+      th:action="@{/authUser}"
+      method="POST">
+    <span th:if="${param.error != null}">Введен неправильный пароль/имя пользователя</span>
+    <span th:if="${param.logout != null}">Вы разлогинились</span>
+    <p> User name : <input type="text" th:name="username">
+    </p>
+    <p>
+        Password : <input type="password" th:name="password">
+    </p>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
