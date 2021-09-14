@@ -6,20 +6,20 @@
     <title>Title</title>
 </head>
 <body>
-  Create new student!
-<br>
-
+<div class="container">
+    <h2>Create new student!</h2>
 <form action="#" th:action="@{/student/processNew}" th:object="${student}"  method="get">
     Enter first name: <input type="text" th:field="*{firstName}"/>
     <ul>
         <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" class="error" />
     </ul>
     Enter last name:  <input type="text" th:field="*{lastName}"/>
+    <br>
     <select th:field="*{gender}">
         <option th:value="'M'" th:text="Male"></option>
         <option th:value="'F'" th:text="Female"></option>
     </select>
-
+    <br>
     <select th:field="*{country}">
         <option value=""> -- </option>
         <option th:each="entry : ${countries}"
@@ -27,7 +27,7 @@
                 th:utext="${entry.value}">
         </option>
     </select>
-
+    <br>
     <input type="radio" th:field="*{language}" th:value="Java" />
     <label th:for="Java" th:text="Java"></label>
     <input type="radio" th:field="*{language}" th:value="C" />
@@ -44,8 +44,9 @@
     <label th:for="Linux" th:text="Linux"></label>
     <input type="checkbox" th:field="*{operatingSystems}" th:value="Windows" />
     <label th:for="Windows" th:text="Windows"></label>
-
-    <input type="submit" value="Submit">
+    <br>
+    <input class="btn btn-success" type="submit" value="Submit">
 </form>
+</div>
 </body>
 </html>

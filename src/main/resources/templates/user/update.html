@@ -6,16 +6,18 @@
     <title>Title</title>
 </head>
 <body>
-id: <p th:text="${user.id}"/>
-<form action="#"
-      th:action="@{/user/{id}/update(id=${user.id})}"
-      th:object="${user}"
-      method="post">
-  Name: <input type="text" th:field="*{userName}" th:value="${user.userName}"/>
-  Email: <input type="text" th:field="*{email}" th:value="${user.email}"/>
-  <input type="hidden" th:field="*{id}" th:value="${user.id}"/>
-  <input type="submit" value="submit">
-</form>
-<a href="/user/">back</a>
+<div class="container" style="text-align: center; margin-top: 250px;">
+    <form action="#"
+          th:action="@{/user/{id}/update(id=${user.id})}"
+          th:object="${user}"
+          method="post">
+        Name: <input type="text" th:field="*{userName}" th:value="${user.userName}"/>
+        Email: <input type="text" th:field="*{email}" th:value="${user.email}"/>
+        <input type="hidden" th:field="*{id}" th:value="${user.id}"/>
+        <input class="btn btn-success" type="submit" value="submit">
+        <a class="btn btn-primary" href="/user/">back</a>
+    </form>
+</div>
+
 </body>
 </html>

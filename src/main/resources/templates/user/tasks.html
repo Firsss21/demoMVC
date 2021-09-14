@@ -6,9 +6,10 @@
     <title>Title</title>
 </head>
 <body>
-<h2>todo list:</h2>
+<div class="container" >
+    <h2>Список задач</h2>
 
-<table border="1">
+<table class="table" border="1">
     <th>id</th>
     <th>title</th>
     <th>complete</th>
@@ -19,14 +20,16 @@
         <td th:text="${task.id}" />
         <td th:text="${task.title}" />
         <td th:text="${task.complete}" />
-        <td><a th:href="@{/user/{uid}/task/{id}/delete(id=${task.id}, uid=${user.id})}">delete</a></td>
-        <td><a th:href="@{/user/{uid}/task/{id}/update(id=${task.id}, uid=${user.id})}">update</a></td>
-        <td><a th:href="@{/user/{uid}/task/{id}/complete(id=${task.id}, uid=${user.id})}">complete</a></td>
+        <td><a th:href="@{/user/{uid}/task/{id}/delete(id=${task.id}, uid=${user.id})}">Удалить</a></td>
+        <td><a th:href="@{/user/{uid}/task/{id}/update(id=${task.id}, uid=${user.id})}">Редактировать</a></td>
+        <td><a th:href="@{/user/{uid}/task/{id}/complete(id=${task.id}, uid=${user.id})}">Завершить</a></td>
 
     </tr>
 </table>
 
-<p><a th:href="@{/user/{id}/task/create(id=${user.id})}">create task</a></p>
-<p><a href="/user/">back</a></p>
+<p><a class="btn btn-success" th:href="@{/user/{id}/task/create(id=${user.id})}">Создать задачу</a></p>
+<p><a class="btn btn-primary" href="/user/">Назад</a></p>
+</div>
+
 </body>
 </html>

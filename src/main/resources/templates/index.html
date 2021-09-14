@@ -3,35 +3,36 @@
 <head>
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Index page</title>
     <link rel="stylesheet" th:href="@{/static/css/style.css}"/>
 </head>
 <body>
 
 
+<div class="container" style="text-align: center">
 
+    <p>Index page</p>
 
-  <p><a href="/student/">Student</a></p>
-  <p><a href="/user/">User</a></p>
+    Authenticated username:
+    <div sec:authentication="name"></div>
+    Authenticated user roles:
+    <div sec:authentication="principal.authorities"></div>
 
-  <p>Spring Security Thymeleaf tutorial</p>
-  <div sec:authorize="hasRole('USER')">Text visible to user.</div>
-  <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
-  <div sec:authorize="isAuthenticated()">
-      Text visible only to authenticated users.
-  </div>
-  Authenticated username:
-  <div sec:authentication="name"></div>
-  Authenticated user roles:
-  <div sec:authentication="principal.authorities"></div>
+    <div style="display: inline-block"><a class="btn btn-primary" href="/student/">Student</a>
+        <a class="btn btn-primary" href="/user/">User</a></div>
 
-  <p>
-      <a th:href="@{/admin}">Only for admin</a>
-  </p>
-  <form action="#"
-        th:action="@{/logout}"
-        method="POST">
-        <input type="submit" value="Logout">
-  </form>
+    <div sec:authorize="hasRole('USER')">Text visible to user.</div>
+    <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
+    <div sec:authorize="isAuthenticated()">
+        Text visible only to authenticated users.
+    </div>
+
+        <a class="btn btn-primary mb-3" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">Admin panel</a>
+        <form action="#"
+              th:action="@{/logout}"
+              method="POST">
+            <input class="btn btn-primary" type="submit" value="Logout">
+        </form>
+</div>
 </body>
 </html>

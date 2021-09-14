@@ -6,15 +6,20 @@
     <title>Title</title>
 </head>
 <body>
-Create new task!
-<form action="#"
-      th:action="@{create}"
-      th:object="${task}"
-      method="post">
-    Enter title: <input type="text" th:field="*{title}"/>
-    <ul><li th:each="err : ${#fields.errors('title')}" th:text="${err}" class = "error"/></ul>
-    <input type="submit" value="submit">
-    <a href="/user/">back</a>
-</form>
+<div class="container">
+    <h2>Создание задачи</h2>
+    <p>Введи описание задачи</p>
+    <form action="#"
+          th:action="@{create}"
+          th:object="${task}"
+          method="post">
+        <input type="text" th:field="*{title}"/>
+        <ul>
+            <li th:each="err : ${#fields.errors('title')}" th:text="${err}" class="error"/>
+        </ul>
+        <input class="btn btn-success" type="submit" value="Создать">
+        <a class="btn btn-primary" href="/user/">Назад</a>
+    </form>
+</div>
 </body>
 </html>
